@@ -1,0 +1,19 @@
+[[file:README.org][← READMEに戻る]]
+[[file:05_backtest.org][← 前: バックテスト]]
+---
+* 拡張案・注意事項
+** モデル拡張
+- Attention 機構
+- Transformer 系時系列モデル
+
+** 特徴量拡張
+- ATR, Bollinger Bands
+- 市場指数との相対値
+
+** 注意事項
+- 金融時系列の高ノイズ性
+- 過学習リスク
+- 再現性確保（seed 固定）
+
+** 倫理・法的配慮
+- 投資助言規制への注意

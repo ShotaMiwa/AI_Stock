@@ -1,0 +1,22 @@
+[[file:README.org][← READMEに戻る]]
+[[file:03_model_training.org][← 前: モデル学習]]
+[[file:05_backtest.org][次: バックテスト →]]
+---
+* 損失関数・評価・意思決定
+
+** 損失関数
+- Binary Cross Entropy
+- クラス不均衡時：
+  - class weight
+  - Focal Loss の検討
+
+** 評価指標
+- ROC-AUC
+- Precision-Recall 曲線
+
+** 実運用時の意思決定ルール
+| 条件 | 行動 |
+|---+---|
+| p ≥ 0.55 | 買い |
+| p ≤ 0.45 | 売り |
+| その他 | ノーポジション |

@@ -1,0 +1,22 @@
+[[file:README.org][← READMEに戻る]]
+[[file:00_overview.org][← 前: 全体像]]
+[[file:02_data_design.org][次: データ設計 →]]
+---
+* 問題定式化
+
+** 問題設定
+- 二値分類問題として定式化
+
+** ラベル定義
+- y = 1 : t+5 営業日のリターン > 0
+- y = 0 : それ以外
+
+** モデル出力
+- P(y=1 | 過去株価, 過去ニュース)
+
+** 評価指標
+- 主指標：ROC-AUC
+- 補助指標：
+  - Accuracy
+  - Precision / Recall
+  - F1-score

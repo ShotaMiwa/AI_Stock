@@ -1,0 +1,102 @@
+#+TITLE: AI株価予測プロジェクト（ai_stock）
+#+AUTHOR: Shota Miwa
+#+STARTUP: overview
+#+OPTIONS: toc:2
+
+* このREADMEについて
+このファイルは、ai_stock ディレクトリ内の org 群を
+**設計書として読むための起点（ナビゲーション）**である。
+
+- 迷ったらまずここを開く
+- 上から順に読めば全体像が理解できる
+- 各ファイルは相互にリンクされている
+
+---
+
+* プロジェクト概要
+** 目的
+- 株価データ＋ニュースデータを用いた
+- 1週間先の株価上昇/非上昇予測
+- 趣味だが「実運用可能性」を意識した設計
+
+** 基本方針
+- End-to-End 学習（株価 + ニュース）
+- 時系列整合を最優先
+- バックテスト前提での意思決定
+
+---
+
+* 読む順番
+1. [[file:00_overview.org][00_overview.org]]  
+   → 全体像と前提条件
+
+2. [[file:01_problem_definition.org][01_problem_definition.org]]  
+   → 何を予測し、どう使うか
+
+3. [[file:02_data_design.org][02_data_design.org]]  
+   → データ・前処理・特徴量
+
+4. [[file:03_model_training.org][03_model_training.org]]  
+   → モデル構造・学習設計
+
+5. [[file:04_loss_eval_decision.org][04_loss_eval_decision.org]]  
+   → 損失関数・評価指標・売買判断
+
+6. [[file:05_backtest.org][05_backtest.org]]  
+   → バックテストとリスク管理
+
+7. [[file:99_future_work.org][99_future_work.org]]  
+   → 将来拡張・保留事項
+
+---
+
+* ディレクトリ構成
+org/ai_stock/
+├── README.org
+├── 00_overview.org
+├── 01_problem_definition.org
+├── 02_data_design.org
+├── 03_model_training.org
+├── 04_loss_eval_decision.org
+├── 05_backtest.org
+└── 99_future_work.org
+
+
+---
+
+* 運用ルール（要約）
+- コードより先に org を書く
+- 判断には必ず理由と数値を書く
+- 不採用案も削除しない
+- 実験1回 = org 更新1回
+
+詳細は [[file:../ai_stock_rules.org][運用ルール全文]] を参照。
+
+---
+
+* クイック操作 (Emacs)
+** 基本の動き (ナビゲーション)
+   - [[file:README.org][README]] を開く :: =C-x b= のあと =REA= と打って Enter
+   - リンクを開く :: リンク（青字）の上で =C-c C-o=
+   - 前の画面に戻る :: =C-c &= (リンクで飛んだ後に戻る時)
+   - バッファ(ファイル)切替 :: =C-x b=
+   - バッファリスト表示 :: =C-x C-b=
+
+** 閲覧・編集 (Org-mode)
+   - 見出しの開閉 :: =TAB=
+   - 全見出しの開閉 :: =S-TAB= (Shift + Tab)
+   - 保存 :: =C-x C-s=
+   - Emacsの終了 :: =C-x C-c=
+
+** 高度な検索 (全ファイル横断)
+   - プロジェクト内検索 :: =M-x rgrep=
+     - 1. 検索ワードを入力
+     - 2. =*.org= と入力 (対象ファイル)
+     - 3. Enter (検索場所はデフォルトで現在地)
+     - ※ 検索結果上で =Enter= を押すとその場所にジャンプします
+
+** 運用ルール (覚書)
+   - 1. =ai_stock= コマンドで全ファイルを開いて作業開始
+   - 2. 常に =README.org= を起点にして、リンクから各工程に飛ぶ
+   - 3. 終わる時は =C-x C-s= で保存を忘れずに
+

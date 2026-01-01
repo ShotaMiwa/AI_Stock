@@ -1,0 +1,26 @@
+[[file:README.org][← READMEに戻る]]
+[[file:02_data_design.org][← 前: データ設計]]
+[[file:04_loss_eval_decision.org][次: 損失・評価 →]]
+---
+* モデル設計と学習
+
+** モデル構成
+- 株価系列：LSTM
+- ニュース：BERT
+- 結合後：MLP + Sigmoid
+
+** Optimizer 設計
+| モジュール | Optimizer | 学習率 |
+|---+---+---|
+| BERT | AdamW | 1e-5 |
+| LSTM | AdamW | 1e-3 |
+| MLP | AdamW | 1e-3 |
+
+** Scheduler
+- Warmup + Linear decay
+- Warmup 比率：5〜10%
+
+** Training Loop
+- End-to-End 学習
+- gradient clipping: 1.0
+- Early stopping：Validation ROC-AUC
